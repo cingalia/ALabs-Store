@@ -26,5 +26,15 @@ class Product(Page):
         InlinePanel('custom_fields', label='Custom fields'),
     ]
 
+class ProductCustomField(Orderable):
+    product = ParentalKey(Product, on_delete=models.CASCADE, related_name='custom_fields')
+    name = models.CharField(max_length=255)
+    options = models.CharField(max_length=500, null=True, blank=True)
+
+    panels = [
+        FieldPanel('name'),
+        FieldPanel('options')
+    ]
+
 class HomePage(Page):
     pass
