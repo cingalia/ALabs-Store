@@ -5,6 +5,14 @@ from modelcluster.fields import ParentalKey
 from wagtail.core.models import Page, Orderable
 from wagtail.admin.edit_handlers import FieldPanel, MultiFieldPanel, InlinePanel
 from wagtail.images.edit_handlers import ImageChooserPanel
+from wagtail.contrib.settings.models import BaseSetting, register_setting
+
+@register_setting
+class SnipcartSettings(BaseSetting):
+    api_key = models.CharField(
+        max_length=255,
+        help_text='ZmU2MDVjZmUtOGE5MS00YjNkLTg1ZGItYmFiYmQ2NDVmMTZkNjM4MjY2NDc4MTg1MTYwNTgz'
+    )
 
 class Product(Page):
     sku = models.CharField(max_length=255)
