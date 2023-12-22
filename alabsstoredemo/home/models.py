@@ -5,7 +5,7 @@ from modelcluster.fields import ParentalKey
 from wagtail.models import Page, Orderable
 from wagtail.admin.panels import FieldPanel, MultiFieldPanel, InlinePanel
 from wagtail.images.models import Image
-from wagtail.images.edit_handlers import ImageChooserPanel
+# from wagtail.images.edit_handlers import ImageChooserPanel
 from wagtail.contrib.settings.models import BaseSetting, register_setting
 
 @register_setting
@@ -30,7 +30,7 @@ class Product(Page):
     content_panels = Page.content_panels + [
         FieldPanel('sku'),
         FieldPanel('price'),
-        ImageChooserPanel('image'),
+        FieldPanel('image'),
         FieldPanel('short_description'),
         InlinePanel('custom_fields', label='Custom fields'),
     ]
