@@ -5,5 +5,9 @@ module.exports = {
     extend: {},
   },
   plugins: [],
+  purge: {
+    enabled: true,
+    content: ['../home/templates/**/*.html'],
+  },
 }
 
