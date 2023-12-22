@@ -46,4 +46,9 @@ class ProductCustomField(Orderable):
     ]
 
 class HomePage(Page):
-    pass
+    def get_context(self, request):
+        context = super().get_context(request)
+
+        context['products'] = Product.objects.child_of(self).live()
+
+        return context
