@@ -7,7 +7,7 @@ module.exports = {
   plugins: [],
   purge: {
     enabled: true,
-    content: ['../home/templates/**/*.html'],
+    content: ['../alabsstoredemo/templates/**/*.html'],
   },
 }
 
