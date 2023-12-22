@@ -6,10 +6,10 @@ from wagtail.models import Page, Orderable
 from wagtail.admin.panels import FieldPanel, MultiFieldPanel, InlinePanel
 from wagtail.images.models import Image
 # from wagtail.images.edit_handlers import ImageChooserPanel
-from wagtail.contrib.settings.models import BaseSetting, register_setting
+from wagtail.contrib.settings.models import BaseSiteSetting, register_setting
 
 @register_setting
-class SnipcartSettings(BaseSetting):
+class SnipcartSettings(BaseSiteSetting):
     api_key = models.CharField(
         max_length=255,
         help_text='ZmU2MDVjZmUtOGE5MS00YjNkLTg1ZGItYmFiYmQ2NDVmMTZkNjM4MjY2NDc4MTg1MTYwNTgz'
