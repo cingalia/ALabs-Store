@@ -35,6 +35,20 @@ class Product(Page):
         InlinePanel('custom_fields', label='Custom fields'),
     ]
 
+    def get_context(self, request):
+        context = super().get_context(request)
+        fields = []
+        for f in self.custom_fields.get_object_list():
+            if f.options:
+                f.options_array = f.options.split('|')
+                fields.append(f)
+            else:
+                fields.append(f)
+
+        context['custom_fields'] = fields
+
+        return context
+
 class ProductCustomField(Orderable):
     product = ParentalKey(Product, on_delete=models.CASCADE, related_name='custom_fields')
     name = models.CharField(max_length=255)
